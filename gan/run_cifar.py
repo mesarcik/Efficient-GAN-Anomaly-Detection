@@ -12,7 +12,7 @@ from sklearn.metrics import precision_recall_fscore_support
 
 RANDOM_SEED = 146
 FREQ_PRINT = 20 # print frequency image tensorboard [20]
-STEPS_NUMBER = 500
+STEPS_NUMBER = 10
 
 def get_getter(ema):  # to update neural net with moving avg variables, suitable for ss learning cf Saliman
     def ema_getter(getter, name, *args, **kwargs):
@@ -277,6 +277,7 @@ def train_and_test(nb_epochs, weight, method, degree, random_seed, label):
         testy = testy[inds]
         scores = []
         inference_time = []
+        logger.warn('GETTING STUCK')
 
         # testing
         for t in range(nr_batches_test):
